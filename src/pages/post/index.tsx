@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { ArrowSquareOut } from 'phosphor-react'
 import { useCallback, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
+import { NavLink, useParams } from 'react-router-dom'
+import rehypeRaw from 'rehype-raw'
 import calendar from '../../assets/calendar.svg'
 import chevron from '../../assets/chevron.svg'
-import comments from '../../assets/comments.svg'
+import Comments from '../../assets/comments.svg'
 import gitHub from '../../assets/gitHub.svg'
 import { dataFormatter } from '../../utils/formatter'
 import { PostIssue } from './styles'
@@ -45,34 +47,38 @@ export function Post() {
     fetchIssueInfo()
   }, [fetchIssueInfo])
 
+  const { title, comments, createdAt, body, htmlUrl, login } = issue
+
   return (
     <PostIssue>
-      <header>
+      <div className="issueHeader">
         <span>
-          <a href="">
-            <img src={chevron} alt="" /> Voltar
-          </a>
-          <a href={issue.htmlUrl}>
+          <NavLink to="/">
+            <img src={chevron} alt="" /> VOLTAR
+          </NavLink>
+          <a href={htmlUrl}>
             VER NO GITHUB <ArrowSquareOut size={14} />
           </a>
         </span>
-        <h1>{issue.title}</h1>
+        <h1>{title}</h1>
         <div>
           <span>
             <img src={gitHub} alt="" />
-            {issue.login}
+            {login}
           </span>
           <span>
             <img src={calendar} alt="" />
-            {dataFormatter.format(new Date(issue.createdAt))}
+            {createdAt && dataFormatter.format(new Date(createdAt))}
           </span>
           <span>
-            <img src={comments} alt="" />
-            {issue.comments} comentários
+            <img src={Comments} alt="" />
+            {comments} comentários
           </span>
         </div>
-      </header>
-      <div></div>
+      </div>
+      <div className="issueBody">
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{body}</ReactMarkdown>
+      </div>
     </PostIssue>
   )
 }

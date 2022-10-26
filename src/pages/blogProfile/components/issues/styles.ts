@@ -50,15 +50,13 @@ export const IssuesContainer = styled.section`
   }
 
   .issueBody {
-    height: 16.5rem;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     font-size: 1.6rem;
     line-height: 160%;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     a {
       color: ${(props) => props.theme.blue};
@@ -67,6 +65,12 @@ export const IssuesContainer = styled.section`
       &:hover {
         text-decoration: underline;
       }
+    }
+
+    pre {
+      padding: 1rem;
+      background: ${(props) => props.theme['base-border']};
+      color: ${(props) => props.theme['base-title']};
     }
 
     code {

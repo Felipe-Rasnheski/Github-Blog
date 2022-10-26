@@ -5,7 +5,7 @@ export const PostIssue = styled.div`
   margin: 0 auto;
   margin-top: -9.4rem;
 
-  header {
+  .issueHeader {
     padding: 3.2rem;
     background: ${(props) => props.theme['base-profile']};
     position: relative;
@@ -72,7 +72,70 @@ export const PostIssue = styled.div`
     }
   }
 
-  & > div {
+  .issueBody {
     padding: 4rem 3.2rem;
+    font-size: 1.6rem;
+    line-height: 160%;
+    margin-bottom: 5rem;
+
+    a {
+      color: ${(props) => props.theme.blue};
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    pre {
+      padding: 1rem;
+      background: ${(props) => props.theme['base-post']};
+      color: ${(props) => props.theme['base-title']};
+      margin-top: 1.5rem;
+      border-radius: 2px;
+
+      & > code {
+        padding: none;
+        border: none;
+        background: transparent;
+      }
+    }
+
+    code {
+      padding: 0.3rem;
+      border-radius: 5px;
+      background: ${(props) => props.theme['base-border']};
+      color: ${(props) => props.theme['base-title']};
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      color: ${(props) => props.theme['base-title']};
+    }
+
+    h2,
+    h3 {
+      margin-bottom: 0.8rem;
+      color: ${(props) => props.theme['base-subtitle']};
+    }
+
+    p + h3,
+    p + h2,
+    p + h1 {
+      margin-top: 0.8rem;
+    }
+
+    p + p {
+      margin-top: 1rem;
+    }
+
+    ol,
+    li {
+      padding: 1rem 0;
+
+      &::marker {
+        color: ${(props) => props.theme.blue};
+      }
+    }
   }
 `
