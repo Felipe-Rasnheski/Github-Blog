@@ -9,6 +9,7 @@ interface InfoProfileProps {
   company: string
   avatarUrl: string
   htmlUrl: string
+  followingUrl: string
 }
 
 interface InfoProfileContextType {
@@ -37,9 +38,19 @@ export function InfoProfileProvider({ children }: InfoProfileProviderProps) {
       company,
       avatar_url: avatarUrl,
       html_url: htmlUrl,
+      following_url: followingUrl,
     } = response.data
 
-    setInfoProfile({ login, name, avatarUrl, followers, bio, company, htmlUrl })
+    setInfoProfile({
+      login,
+      name,
+      avatarUrl,
+      followers,
+      bio,
+      company,
+      htmlUrl,
+      followingUrl,
+    })
   }
 
   useEffect(() => {

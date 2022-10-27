@@ -13,4 +13,8 @@ export const HomeContainer = styled.main`
       width: 6rem;
     }
   }
+
+  .feedContainer {
+    margin-top: 3.2rem;
+  }
 `
