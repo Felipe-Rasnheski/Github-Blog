@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 import { ArrowSquareOut } from 'phosphor-react'
 import { useCallback, useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
@@ -8,7 +10,6 @@ import calendar from '../../assets/calendar.svg'
 import chevron from '../../assets/chevron.svg'
 import Comments from '../../assets/comments.svg'
 import gitHub from '../../assets/gitHub.svg'
-import { dataFormatter } from '../../utils/formatter'
 import { PostIssue } from './styles'
 
 interface IssueProps {
@@ -68,7 +69,11 @@ export function Post() {
           </span>
           <span>
             <img src={calendar} alt="" />
-            {createdAt && dataFormatter.format(new Date(createdAt))}
+            {createdAt &&
+              formatDistanceToNow(new Date(createdAt), {
+                addSuffix: true,
+                locale: ptBR,
+              })}
           </span>
           <span>
             <img src={Comments} alt="" />

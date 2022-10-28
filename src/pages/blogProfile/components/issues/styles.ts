@@ -6,11 +6,19 @@ export const IssuesContainer = styled.section`
   gap: 3.2rem;
   margin: 4.8rem 0;
 
-  .test {
-    height: 100vh;
+  .empty {
+    margin: 0 auto;
+    width: 100%;
+    height: 50rem;
   }
 
-  & > div {
+  .notEmpty {
+    transform: scaleY(0);
+    position: absolute;
+    top: 0;
+  }
+
+  .issueContainer {
     padding: 3.2rem;
     max-height: 26rem;
     border-radius: 10px;
@@ -22,6 +30,10 @@ export const IssuesContainer = styled.section`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
+
+    &:hover {
+      cursor: default;
+    }
 
     a {
       text-decoration: none;
@@ -57,6 +69,10 @@ export const IssuesContainer = styled.section`
     overflow: hidden;
     font-size: 1.6rem;
     line-height: 160%;
+
+    &:hover {
+      cursor: default;
+    }
 
     a {
       color: ${(props) => props.theme.blue};

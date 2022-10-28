@@ -49,6 +49,10 @@ export const PostIssue = styled.div`
       line-height: 160%;
       color: ${(props) => props.theme['base-title']};
       margin: 2rem 0 1rem 0;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     & > div {
@@ -62,6 +66,10 @@ export const PostIssue = styled.div`
         font-size: 1.6rem;
         line-height: 0%;
         color: ${(props) => props.theme['base-span']};
+
+        &:hover {
+          cursor: default;
+        }
       }
 
       img {
@@ -77,6 +85,10 @@ export const PostIssue = styled.div`
     font-size: 1.6rem;
     line-height: 160%;
     margin-bottom: 5rem;
+
+    &:hover {
+      cursor: default;
+    }
 
     a {
       color: ${(props) => props.theme.blue};

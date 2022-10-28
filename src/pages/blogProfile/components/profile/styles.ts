@@ -9,6 +9,10 @@ export const ProfileContent = styled.div`
   display: flex;
   gap: 3.2rem;
 
+  &:hover {
+    cursor: default;
+  }
+
   img {
     margin-left: 0.8rem;
     max-width: 14.8rem;
